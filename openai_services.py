@@ -85,7 +85,7 @@ Context:
             max_tokens=4000,  # Adjust as needed
         )
 
-        return response.choices[0].message.content
+        return response
 
     except Exception as e:
         return f"Error generating response: {str(e)}"
