@@ -1,0 +1,22 @@
+[project]
+name = "document-qa"
+version = "0.1.0"
+description = "Document Q&A system using Docling and LanceDB"
+requires-python = ">=3.12"
+dependencies = [
+    "docling",
+    "docling-core[chunking-openai]",
+    "langchain",
+    "langchain-core",
+    "langchain-text-splitters",
+    "pandas",
+    "numpy",
+    "streamlit",
+    "openai",
+    "python-dotenv",
+    "requests",
+    "ipykernel",
+    "pydantic",
+    "tiktoken",
+]
+
