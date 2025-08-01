@@ -36,6 +36,9 @@ print("STEP 2: DOCUMENT CHUNKING")
 chunks = chunk_markdown_with_langchain(document, chunk_size=1000, chunk_overlap=200)
 processed_chunks = create_processed_chunks(chunks, filename)
 
+pd_temp = pd.DataFrame(processed_chunks)
+pd_temp.to_csv("data/langchain_simple_chunks_BEFORE_embeddings.csv", index=False)
+
 # --------------------------------------------------------------
 # Step 3: Embedding Generation
 # --------------------------------------------------------------
@@ -67,7 +70,7 @@ df.to_csv("data/langchain_simple_chunks_with_embeddings.csv", index=False)
 # --------------------------------------------------------------
 print("STEP 5: RAG DEMONSTRATION")
 
-query = "What is Docling and what does it do?"
+query = "How does Docling process PDF documents?"
 search_results = vector_similarity_search(query, df, client, k=5)
 retrieved_texts = search_results["text"].tolist()
 response = generate_response_with_context(query, retrieved_texts, client)
